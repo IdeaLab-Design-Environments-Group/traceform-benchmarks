@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Internal analysis, not part of the published benchmark.
+FINDINGS.md
+sensitivity.py
+results/sensitivity.md
+config-thinfilm.yaml
+results-thinfilm/
+
+# The traceform router itself is withheld pending a separate write-up.
+# The harness, the meshes, the layouts, the validator and the results are
+# published; these two files are what regenerate the `traceform` column.
+src/routing/traceform_impl.py
+tests/test_traceform_withheld.py

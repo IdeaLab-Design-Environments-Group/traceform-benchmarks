@@ -1,0 +1,113 @@
+# traceformroutebench — every tunable lives here. Nothing is hardcoded in src/.
+# A copy of this file is written to results/config.yaml with each run, so a
+# stored result always carries the parameters that produced it.
+
+seed: 20260831
+
+models:
+  - id: house
+    mesh: data/meshes/house.stl
+  - id: church
+    mesh: data/meshes/church.stl
+  - id: bat_body
+    mesh: data/meshes/bat-body.stl
+
+layouts: [A, B, C]
+methods: [length_only, traceform]   # traceform's router is withheld; see README
+
+# ---------------------------------------------------------------- geometry
+mesh:
+  weld_decimals: 4        # vertex welding tolerance for STL triangle soup
+  flat_eps_deg: 0.01      # |dihedral| below this merges two triangles into one
+                          # panel.  Kept tight: these meshes are procedurally
+                          # generated so genuinely coplanar triangles are
+                          # exactly coplanar, and a looser tolerance merges
+                          # curved regions into panels that are not flat.
+  planarity_rel: 1.0e-4   # a panel's vertices must lie this close to its own
+                          # plane, as a fraction of the mesh bounding-box
+                          # diagonal.  Guards the merge above: a chain of
+                          # near-flat steps across a curved region builds a
+                          # panel that is not flat, and laying it out then
+                          # silently stretches its edges.
+
+sheet:
+  # Every model is scaled so the total area of its flat pattern is this.
+  # Area rather than bounding-box diagonal: the circuit needs substrate to sit
+  # on, and normalising by diagonal punishes an elongated pattern -- bat_body's
+  # panels came out too small to seat a part.
+  area_mm2: 40000.0
+
+unfold:
+  isometry_tol_mm: 1.0e-6 # flat edge length must equal 3D rest length
+  overlap_eps_mm: 1.0e-4  # SAT tolerance for panel overlap
+  relief_max: 64          # bound on relief cuts before failing loudly
+
+# ------------------------------------------------------------------ physics
+# Euler-Bernoulli outer-fibre strain in the copper, after
+# kiri/src/model/fold-strain.ts (DEFAULT_SHEET).  Mountain positive = tension.
+#   R = w / theta ;  eps = (h/2 + t) / R = (h/2 + t) * theta / w
+sheet_spec:
+  substrate_mm: 0.4       # h  — the hinge bridge, not the rigid tile
+  foil_mm: 0.035          # t  — copper foil
+  substrate_gpa: 3.5
+  foil_gpa: 117.0
+  fatigue_strain: 0.01    # reported only; NOT used to clip the routing cost
+  hinge_width_mm: 2.0     # w  — scored crease band width
+
+# ------------------------------------------------------------------ routing
+routing:
+  grid_pitch_mm: 1.5      # routing-node lattice pitch, clipped to each panel.
+                          # Deliberately below trace_width + clearance
+                          # (0.85 + 1.1375 = 1.9875), so two nets on adjacent
+                          # nodes really are too close.  A lattice coarser than
+                          # the design rule would make every route trivially
+                          # compliant and clearance_violation_count uniformly
+                          # zero, which is the one thing layout C exists to
+                          # avoid.
+  trace_width_mm: 0.85    # Derived, not chosen: the finest pad pitch in the
+                          # component set is 2.000mm (Conn_USB_A_Plain), so the
+                          # widest legal trace is 2.000 - 1.1375 = 0.8625mm.
+                          # kiri's 1.5mm tape is simply illegal at that pitch,
+                          # and using it would report an unavoidable clearance
+                          # violation at every connector.
+  clearance_mm: 1.1375    # kiri minWebMm at the default sheet
+  sides:
+    # Two-sided routing.  Copper may run on either face of the sheet; the sign
+    # of every crease flips with the face (a mountain that stretches copper on
+    # the outer face compresses it on the inner one), and a via carries a trace
+    # through at a fixed price.  The price is identical for every method, so
+    # the mechanism cannot bias the comparison -- what differs is whether a
+    # method can *see* which face is safer, which is exactly the sign the
+    # fold-blind baseline does not read.
+    enabled: true
+    via_cost_mm: 8.0
+  seam_cost_mm: 12.0      # assembly cost of bridging a taped seam.
+                          # Identical for all three methods, so it cannot bias
+                          # the comparison.
+  # Congestion tolls, in multiples of the flat pattern's bbox diagonal, so
+  # they scale with the model instead of meaning different things on a 400mm
+  # pattern and a 600mm one.  After kiri's OCCUPIED_TOLL: a used node is dear,
+  # never forbidden -- so congestion degrades gracefully instead of stranding.
+  occupied_toll_diagonals: 5.0    # sharing copper with another net: a short
+  halo_toll_diagonals: 0.05       # running inside another net's clearance
+  pad_escape_mm: 12.0     # how far a pad may reach to find open substrate
+  pad_escape_fanout: 3    # how many lattice nodes a pad escape may fan out to
+  net_order: widest_first # route the widest net first: GND has to reach
+                          # everywhere, and left until last it finds every
+                          # corridor claimed.  Depends only on the netlist, so
+                          # it is the same for all three methods.
+
+methods_params:
+  mountain_penalty:
+    # Nakaya, Fujino, He & Narumi, "4D Leaf Circuits", SCF '25, Algorithm 1:
+    # add the bounding-box diagonal to any mountain crossing, and to valleys
+    # folded past the closure angle.
+    diagonal_multiplier: 1.0
+    steep_valley_deg: 170.0
+
+timing:
+  repeats: 5              # runtime_ms is the median of this many routing runs
+
+render:
+  png_width_px: 1600
+  margin_mm: 8.0
