@@ -51,37 +51,22 @@ validator. The comparison isolates what reading the fold geometry is worth.
 
 ## Results
 
-One row per instance in `results/benchmark_results.csv`; the table below is
-generated from it. A *tensile crossing* is a fold crossing that loads the
-copper in tension — the loading that fractures traces under folding cycles.
+**Yes — traceform beats the length-only router, on every instance in the suite.**
 
-| model | layout | router | tensile crossings | sum predicted strain | trace length | cut violations | stranded |
-|---|---|---|---|---|---|---|---|
-| bat_body | A | `length_only` | 1 | 0.036 | 402 mm | 0 | 0 |
-| bat_body | A | `traceform` | 0 | 0.000 | 415 mm | 0 | 0 |
-| bat_body | B | `length_only` | 26 | 1.357 | 896 mm | 0 | 0 |
-| bat_body | B | `traceform` | 0 | 0.000 | 914 mm | 0 | 0 |
-| bat_body | C | `length_only` | 39 | 2.365 | 1904 mm | 0 | 0 |
-| bat_body | C | `traceform` | 0 | 0.000 | 1923 mm | 0 | 0 |
-| church | A | `length_only` | 2 | 0.369 | 444 mm | 0 | 0 |
-| church | A | `traceform` | 0 | 0.000 | 466 mm | 0 | 0 |
-| church | B | `length_only` | 8 | 0.989 | 896 mm | 0 | 0 |
-| church | B | `traceform` | 0 | 0.000 | 906 mm | 0 | 0 |
-| church | C | `length_only` | 20 | 2.820 | 1799 mm | 0 | 0 |
-| church | C | `traceform` | 0 | 0.000 | 1840 mm | 0 | 0 |
-| house | A | `length_only` | 2 | 0.369 | 366 mm | 0 | 0 |
-| house | A | `traceform` | 0 | 0.000 | 370 mm | 0 | 0 |
-| house | B | `length_only` | 8 | 1.477 | 1225 mm | 0 | 0 |
-| house | B | `traceform` | 0 | 0.000 | 1224 mm | 0 | 0 |
-| house | C | `length_only` | 22 | 3.593 | 2028 mm | 0 | 0 |
-| house | C | `traceform` | 0 | 0.000 | 2004 mm | 0 | 0 |
-| **total** | | `length_only` | **128** | **13.376** | **9960 mm** | 0 | 0 |
-| **total** | | `traceform` | **0** | **0.000** | **10064 mm** | 0 | 0 |
+Across all 18 instances the length-only router carries **128** tensile
+crossings; traceform carries **0**, for **+1.0%** trace length. The zero holds
+on each of the nine model/layout pairs individually, not only in aggregate.
+The +1.0% is the aggregate price: traceform routes slightly longer on seven of
+the nine pairs and slightly shorter on two. Neither router crosses a cut edge
+or strands a terminal in any run.
 
-Across all 18 instances, the length-only router carries **128** tensile
-crossings; Traceform carries **0**, at +1.0% trace length, with no
-trace crossing a cut edge and no terminal stranded in any run. The validator
-recomputes every figure in the constraint columns independently of the router.
+A *tensile crossing* is a fold crossing that loads the copper in tension, which
+is the loading that fractures traces under folding cycles. The validator
+recomputes every constraint figure from trace geometry alone, independently of
+the router that produced it.
+
+Per-instance numbers are in `results/benchmark_results.csv`, one row per
+instance, with `results/summary.md` derived from it.
 
 ## Output
 
