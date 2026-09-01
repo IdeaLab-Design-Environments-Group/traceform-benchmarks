@@ -19,10 +19,9 @@ The traceform router isn't published, so its rows can't be regenerated here.
 
 3 meshes, 3 layouts, 18 runs.
 
-| router | tensile crossings | copper |
-|---|---|---|
-| `length_only` | 128 | 9,960 mm |
-| `traceform` | 0 | 10,064 mm |
+Traceform has 0 tensile crossings against 128 for `length_only`, with 1.0% more
+copper. The 0 holds on all 9 model/layout pairs. It routes longer on 7 and
+shorter on 2.
 
 Full numbers are in `results/`. Mesh sources are in
 `data/meshes/PROVENANCE.md`.
