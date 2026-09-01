@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Internal analysis, not part of the published benchmark.
+FINDINGS.md
+sensitivity.py
+results/sensitivity.md
+config-thinfilm.yaml
+results-thinfilm/
+
+# traceform router files, withheld pending a separate write-up.
+src/routing/traceform_impl.py
+tests/test_traceform_withheld.py
