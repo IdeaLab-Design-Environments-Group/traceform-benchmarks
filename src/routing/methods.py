@@ -49,7 +49,7 @@ def make_weight(method: str, graph: RoutingGraph, cfg: dict) -> WeightFn:
                 "the traceform router is not part of this repository; "
                 "see README. length_only and mountain_penalty reproduce "
                 "from source, traceform does not.")
-        return make_weight(traceform_impl.secondary_method(cfg), graph, cfg)
+        return traceform_impl.crease_weight(graph, cfg)
 
     if method == "length_only":
         def w_length(e: Edge) -> float:

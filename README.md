@@ -54,11 +54,11 @@ validator. The comparison isolates what reading the fold geometry is worth.
 **Yes — traceform beats the length-only router, on every instance in the suite.**
 
 Across all 18 instances the length-only router carries **128** tensile
-crossings; traceform carries **0**, for **+1.0%** trace length. The zero holds
+crossings; traceform carries **0**, for **+2.3%** trace length. The zero holds
 on each of the nine model/layout pairs individually, not only in aggregate.
-The +1.0% is the aggregate price: traceform routes slightly longer on seven of
-the nine pairs and slightly shorter on two. Neither router crosses a cut edge
-or strands a terminal in any run.
+The +2.3% is the aggregate price: traceform routes longer on eight of the nine
+pairs and shorter on one. Neither router crosses a cut edge or strands a
+terminal in any run.
 
 A *tensile crossing* is a fold crossing that loads the copper in tension, which
 is the loading that fractures traces under folding cycles. The validator
