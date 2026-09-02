@@ -10,9 +10,13 @@ models:
     mesh: data/meshes/church.stl
   - id: bat_body
     mesh: data/meshes/bat-body.stl
+  - id: guitar_lower_bout
+    mesh: data/meshes/guitar-lower-bout.stl
+  - id: guitar_upper_bout
+    mesh: data/meshes/guitar-upper-bout.stl
 
 layouts: [A, B, C]
-methods: [length_only, traceform]   # traceform's router is withheld; see README
+methods: [length_only, mountain_penalty, traceform]   # traceform's router is withheld; see README
 
 # geometry
 mesh:
@@ -51,9 +55,9 @@ routing:
                           # pad pitch is 2.000mm (Conn_USB_A_Plain), minus 1.1375 gives 0.8625
   clearance_mm: 1.1375    # kiri minWebMm at the default sheet
   sides:
-    # Two-sided routing. A crease's sign flips with the face, and a via costs the same
-    # for every method. The fold-blind baseline cannot see which face is safer.
-    enabled: true
+    # Two-sided routing is off: copper goes on one face with no vias,
+    # as in the published method compared against.
+    enabled: false
     via_cost_mm: 8.0
   seam_cost_mm: 12.0      # assembly cost of bridging a taped seam.
                           # same for all three methods

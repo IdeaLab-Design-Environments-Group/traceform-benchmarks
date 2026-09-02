@@ -16,6 +16,14 @@ from routing.router import route
 
 
 @pytest.fixture(scope="module")
+def cfg(cfg):  # noqa: F811  # shadows the session fixture
+    """Switch two-sided routing on here, since the shipped config is single-sided."""
+    c = copy.deepcopy(cfg)
+    c["routing"]["sides"]["enabled"] = True
+    return c
+
+
+@pytest.fixture(scope="module")
 def house(cfg, root):
     mesh = load_mesh(os.path.join(root, "data", "meshes", "house.stl"),
                      cfg["mesh"]["weld_decimals"])

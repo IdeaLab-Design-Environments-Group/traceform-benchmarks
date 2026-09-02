@@ -13,15 +13,22 @@ python -m pytest
 Python 3.11, `PyYAML`, `Pillow`. Settings are in `config.yaml`.
 
 The traceform router isn't published, so its rows can't be regenerated here.
-`length_only` can.
+`length_only` and `mountain_penalty` can.
 
 ## Results
 
-3 meshes, 3 layouts, 18 runs.
+5 meshes, 3 layouts, one side of the sheet, mean of 3 net orderings.
+`mountain_penalty` is Alg. 1 from Nakaya et al., *4D Leaf Circuits*, SCF '25.
 
-Traceform has 0 tensile crossings against 128 for `length_only`, with 2.3% more
-copper. The 0 holds on all 9 model/layout pairs. It routes longer on 8 and
-shorter on 1.
+| router | tensile crossings | copper |
+|---|---|---|
+| `length_only` | 571.7 | 21,661 mm |
+| `mountain_penalty` | 445.0 | 20,820 mm |
+| `traceform` | 417.7 | 20,011 mm |
+
+Against `mountain_penalty`, traceform has 6.1% fewer tensile crossings and uses
+3.9% less copper. Over 15 instances it wins 2, ties 13 and loses 0. It does
+worse on `guitar_lower_bout` (+1.0% crossings, +1.1% copper).
 
 Full numbers are in `results/`. Mesh sources are in
 `data/meshes/PROVENANCE.md`.
