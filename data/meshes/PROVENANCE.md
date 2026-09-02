@@ -10,6 +10,8 @@ closed, single-component and genus 0 -- asserted on load, not assumed.
 | `church.stl` | `church` | `5584557c71dfee4b194ef9a6070334e5...` | convex solid |
 | `bat-body.stl` | `bat_body` | `bbb63e753a78f679cd24ec3c7aaa3af4...` | convex solid |
 | `bat-wing-left.stl` | `bat_wing` | `21c01530dc4501a6b3d6c8a5de3e03d1...` | non-convex |
+| `guitar-lower-bout.stl` | `guitar_lower_bout` | `c51c5024a7e31753418012f46d266f11...` | convex solid |
+| `guitar-upper-bout.stl` | `guitar_upper_bout` | `9f2f5b17511d031b62e9e7fbd4279bec...` | convex solid |
 
 ## Notes
 
@@ -20,6 +22,19 @@ closed, single-component and genus 0 -- asserted on load, not assumed.
 **`bat-body.stl`** — In-project asset of the kiri project, procedurally generated; the body of a bat model, 120 x 22 x 24 mm.
 
 **`bat-wing-left.stl`** — In-project asset of the kiri project; the left wing of the same bat model. **The only mesh in that project that is not convex**, so the only one carrying valley folds. Vendored as the non-convex reference used by the test suite.
+
+**`guitar-lower-bout.stl`, `guitar-upper-bout.stl`** — In-project assets of the kiri project; the two body lobes of a folded guitar. Vendored to widen the corpus beyond the three original solids. Both are convex, so like house, church and bat_body they carry only mountain folds. What they add is *shallow* creases: the lower bout's folds run from 0.0° to 64.0° and 8 of its 117 crossable edges fall below the 4.88° fatigue threshold, against 0 of 15 for house and 0 of 18 for church. Those sub-threshold creases are the only ones a graded strain price can rank that a mountain/valley flag cannot, so they are the part of the corpus where the cost function has something to do.
+
+### Meshes that could not be admitted
+
+Requested but rejected by `fold/load.py`, each for a reason that is a property
+of the mesh rather than a limitation worth working around:
+
+| mesh | why |
+|---|---|
+| `desk-lamp-shade.stl`, `desk-lamp-base.stl` | open surfaces, 8 boundary edges each. A truncated cone is an annulus, not a closed solid; the unfolding's Euler arithmetic assumes χ = 2 |
+| `church-kirigami.stl`, `house-kirigami.stl` | non-manifold, 60–73 edges shared by more than two faces — which is what the kirigami slits are |
+| `akde-hex`, `akde-square-pyramid`, `akde-decagon-pyramid` | exist only as `.fkld`, kiri's *flat pattern* format. That is this pipeline's output type, not its input: there is no 3D mesh to unfold |
 
 ## Why convexity matters
 

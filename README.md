@@ -51,22 +51,53 @@ validator. The comparison isolates what reading the fold geometry is worth.
 
 ## Results
 
-**Yes — traceform beats the length-only router, on every instance in the suite.**
+Forty-five instances: five meshes, three placements, three routers — a
+fold-blind control (`length_only`), the published mountain rule of Nakaya,
+Fujino, He & Narumi, *4D Leaf Circuits*, SCF '25, Alg. 1 (`mountain_penalty`),
+and `traceform`.
 
-Across all 18 instances the length-only router carries **128** tensile
-crossings; traceform carries **0**, for **+2.3%** trace length. The zero holds
-on each of the nine model/layout pairs individually, not only in aggregate.
-The +2.3% is the aggregate price: traceform routes longer on eight of the nine
-pairs and shorter on one. Neither router crosses a cut edge or strands a
-terminal in any run.
+**One conductive face, no vias.** That is the process both systems build for:
+copper tape on one side of one sheet, which is also what the published method
+assumes — its Algorithm 1 routes a single face-adjacency graph with no second
+layer anywhere in it. Two-sided routing was measured during development and is
+not reported as a result, because with a second face available any rule that
+distinguishes tension from compression drives tensile crossings to zero,
+including the published one; that arm measures the second face, not the cost.
 
-A *tensile crossing* is a fold crossing that loads the copper in tension, which
-is the loading that fractures traces under folding cycles. The validator
-recomputes every constraint figure from trace geometry alone, independently of
-the router that produced it.
+A *tensile crossing* is a fold crossing that loads the copper in tension — the
+loading that fractures traces under folding cycles. The validator recomputes
+every constraint figure from trace geometry alone, never from router state.
 
-Per-instance numbers are in `results/benchmark_results.csv`, one row per
-instance, with `results/summary.md` derived from it.
+Because a sequential router is sensitive to net ordering, every figure below is
+the mean of three orderings rather than a single run:
+
+| router | tensile crossings | trace length |
+|---|---|---|
+| `length_only` | 571.7 | 21,661 mm |
+| `mountain_penalty` | 445.0 | 20,820 mm |
+| `traceform` | **417.7** | **20,011 mm** |
+
+`traceform` carries **6.1% fewer tensile crossings than the published mountain
+rule while using 3.9% less copper**, and 26.9% fewer than the fold-blind
+control at 7.6% less copper. It leads on both metrics under each of the three
+orderings independently. Per instance, once ordering spread is treated as
+noise, it wins 2, ties 13 and **loses 0** of 15.
+
+The gain is unevenly distributed, and the per-model split is the honest picture:
+
+| model | prior art | `traceform` | crossings | copper |
+|---|---|---|---|---|
+| house | 54.0 / 4,246 | 48.3 / 4,227 | −10.5% | −0.4% |
+| church | 60.3 / 4,500 | 49.3 / 3,939 | **−18.2%** | **−12.5%** |
+| bat_body | 132.7 / 3,798 | 123.7 / 3,756 | −6.8% | −1.1% |
+| guitar_lower_bout | 101.0 / 4,377 | 102.0 / 4,424 | +1.0% | +1.1% |
+| guitar_upper_bout | 97.0 / 3,899 | 94.3 / 3,664 | −2.7% | −6.0% |
+
+Four of five models improve on crossings; `guitar_lower_bout` is 1% worse on
+both and is the one model where the graded price does not pay.
+
+No trace crosses a cut edge and no terminal strands, in any router. Two runs
+with one seed produce identical rows.
 
 ## Output
 

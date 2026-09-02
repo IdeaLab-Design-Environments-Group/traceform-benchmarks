@@ -11,9 +11,13 @@ models:
     mesh: data/meshes/church.stl
   - id: bat_body
     mesh: data/meshes/bat-body.stl
+  - id: guitar_lower_bout
+    mesh: data/meshes/guitar-lower-bout.stl
+  - id: guitar_upper_bout
+    mesh: data/meshes/guitar-upper-bout.stl
 
 layouts: [A, B, C]
-methods: [length_only, traceform]   # traceform's router is withheld; see README
+methods: [length_only, mountain_penalty, traceform]   # traceform's router is withheld; see README
 
 # ---------------------------------------------------------------- geometry
 mesh:
@@ -79,7 +83,12 @@ routing:
     # the mechanism cannot bias the comparison -- what differs is whether a
     # method can *see* which face is safer, which is exactly the sign the
     # fold-blind baseline does not read.
-    enabled: true
+    # Off.  The fabrication process this benchmark models is copper tape on one
+    # face of one sheet: there is no second conductive layer and no via, which
+    # is also true of the published method being compared against.  Two-sided
+    # routing was measured and is reported in the README, but it is not the
+    # configuration either system builds.
+    enabled: false
     via_cost_mm: 8.0
   seam_cost_mm: 12.0      # assembly cost of bridging a taped seam.
                           # Identical for all three methods, so it cannot bias
