@@ -1,7 +1,7 @@
 # traceformroutebench
 
 Benchmark for Traceform, a router for copper tape on folded sheets.
-Main project: <https://github.com/IdeaLab-Design-Environments-Group/kiri>
+## Main project: <https://github.com/IdeaLab-Design-Environments-Group/kiri>
 
 ## Run
 
