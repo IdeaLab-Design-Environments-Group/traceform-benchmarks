@@ -1,7 +1,8 @@
 # traceformroutebench
 
-This is the benchmark for **Traceform**; the project itself lives at
-<https://github.com/IdeaLab-Design-Environments-Group/kiri>.
+## **Project repository: <https://github.com/IdeaLab-Design-Environments-Group/kiri>**
+
+**This is the benchmark for Traceform. The tool itself, the unfolding and the router, live in the project repository above.**
 
 A reproducible benchmark for routing electrical circuits on a folded substrate:
 
