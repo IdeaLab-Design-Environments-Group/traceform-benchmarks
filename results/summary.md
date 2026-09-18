@@ -13,7 +13,7 @@ Derived from `benchmark_results.csv`; the CSV itself stays raw.
 | bat_body | B | traceform | 45 -> 31 (-31%) | -14% | +10% | 0 -> 0 | +7% | 0 |
 | bat_body | C | length_only | 132 -> 132 (+0%) | +0% | +0% | 0 -> 0 | +0% | 0 |
 | bat_body | C | mountain_penalty | 132 -> 80 (-39%) | -32% | +0% | 0 -> 0 | -17% | 0 |
-| bat_body | C | traceform | 132 -> 82 (-38%) | -35% | +0% | 0 -> 0 | -15% | 0 |
+| bat_body | C | traceform | 132 -> 86 (-35%) | -32% | +0% | 0 -> 0 | -15% | 0 |
 | church | A | length_only | 2 -> 2 (+0%) | +0% | +0% | 0 -> 0 | +0% | 0 |
 | church | A | mountain_penalty | 2 -> 2 (+0%) | +0% | +0% | 0 -> 0 | +0% | 0 |
 | church | A | traceform | 2 -> 2 (+0%) | +0% | +0% | 0 -> 0 | -1% | 0 |

@@ -1,6 +1,7 @@
 # traceformroutebench
 
-Benchmark for routing copper tape on folded sheets.
+Benchmark for Traceform, a router for copper tape on folded sheets.
+Main project: <https://github.com/IdeaLab-Design-Environments-Group/kiri>
 
 ## Run
 
@@ -24,11 +25,11 @@ The traceform router isn't published, so its rows can't be regenerated here.
 |---|---|---|
 | `length_only` | 571.7 | 21,661 mm |
 | `mountain_penalty` | 445.0 | 20,820 mm |
-| `traceform` | 417.7 | 20,011 mm |
+| `traceform` | 421.7 | 19,994 mm |
 
-Against `mountain_penalty`, traceform has 6.1% fewer tensile crossings and uses
-3.9% less copper. Over 15 instances it wins 2, ties 13 and loses 0. It does
-worse on `guitar_lower_bout` (+1.0% crossings, +1.1% copper).
+Against `mountain_penalty`, traceform has 5.2% fewer tensile crossings and uses
+4.0% less copper. Over 15 instances it wins 6, ties 7 and loses 2. It does
+worse on `guitar_lower_bout` (+1.7% crossings, +1.1% copper).
 
-Full numbers are in `results/`. Mesh sources are in
+Full numbers are in `results/2026-09-16/`. Mesh sources are in
 `data/meshes/PROVENANCE.md`.

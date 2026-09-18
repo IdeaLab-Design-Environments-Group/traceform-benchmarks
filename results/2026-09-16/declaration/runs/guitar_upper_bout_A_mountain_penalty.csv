@@ -1,0 +1,8 @@
+net,connected,length_mm,segment_count,panel_sequence,fold_sequence,crossing_kind,crossing_fold_id,crossing_theta_deg,crossing_predicted_strain,crossing_x_mm,crossing_y_mm
+VBUS,1,25.984,13,0,,,,,,,
+V5,1,82.784,46,0,,,,,,,
+USB_DM,1,32.711,13,0,,,,,,,
+USB_DP,1,22.522,4,0,,,,,,,
+DRV1,1,87.493,45,0 10,S2,seam,2,24.32,0.060485,49.296,43.372
+LEDA1,1,16.955,9,10,,,,,,,
+GND,1,171.911,92,0 10 0,S2,seam,2,24.32,0.060485,46.524,33.081
