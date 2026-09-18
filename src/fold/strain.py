@@ -3,10 +3,10 @@
 After kiri/src/model/fold-strain.ts, which states the model as:
 
     R   = w / theta                        the hinge is an arc of width w
-    eps = (h/2 + t) / R = (h/2+t)*theta/w  Euler-Bernoulli outer-fibre strain
+    eps = (h/2 + a + t) / R = (h/2+a+t)*theta/w  Euler-Bernoulli outer-fibre strain
 
-with h the substrate thickness, t the copper foil thickness, w the measured
-hinge width.  Ordinary beam bending; the same quantity a flex-PCB bend-radius
+with h the substrate thickness, a the adhesive standing the foil off it, t the
+copper foil thickness, w the measured hinge width.  Ordinary beam bending; the same quantity a flex-PCB bend-radius
 rule states in its own units.
 
 Sign is the whole point.  Nakaya, Fujino, He & Narumi ("4D Leaf Circuits",
@@ -28,6 +28,7 @@ from dataclasses import dataclass
 class SheetSpec:
     substrate_mm: float
     foil_mm: float
+    adhesive_mm: float
     substrate_gpa: float
     foil_gpa: float
     fatigue_strain: float
@@ -39,6 +40,7 @@ class SheetSpec:
         return cls(
             substrate_mm=s["substrate_mm"],
             foil_mm=s["foil_mm"],
+            adhesive_mm=s.get("adhesive_mm", 0.0),
             substrate_gpa=s["substrate_gpa"],
             foil_gpa=s["foil_gpa"],
             fatigue_strain=s["fatigue_strain"],
@@ -48,7 +50,7 @@ class SheetSpec:
     @property
     def fibre_offset_mm(self) -> float:
         """Distance from the neutral plane to the copper's outer fibre."""
-        return self.substrate_mm / 2.0 + self.foil_mm
+        return self.substrate_mm / 2.0 + self.adhesive_mm + self.foil_mm
 
 
 def bend_radius_mm(spec: SheetSpec, theta_rad: float) -> float:

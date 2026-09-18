@@ -1,0 +1,159 @@
+=== widest_first 08:45:00 ===
+house: 7 panels, 6 creases, 9 seams, 9 cycles, 17832 nodes / 69934 edges
+   A length_only       tensile=  2 sumEps=  0.4477 len=   438.7mm stranded=0 cut=0 clear=7
+   A mountain_penalty  tensile=  2 sumEps=  0.4477 len=   438.7mm stranded=0 cut=0 clear=7
+   A traceform         tensile=  2 sumEps=  0.4477 len=   438.7mm stranded=0 cut=0 clear=7
+   B length_only       tensile= 13 sumEps=  2.9099 len=  1245.6mm stranded=0 cut=0 clear=12
+   B mountain_penalty  tensile= 13 sumEps=  2.9099 len=  1245.6mm stranded=0 cut=0 clear=12
+   B traceform         tensile= 13 sumEps=  2.9099 len=  1245.6mm stranded=0 cut=0 clear=12
+   C length_only       tensile= 44 sumEps=  9.0587 len=  2428.1mm stranded=0 cut=0 clear=43
+   C mountain_penalty  tensile= 31 sumEps=  6.1488 len=  2271.9mm stranded=0 cut=0 clear=39
+   C traceform         tensile= 31 sumEps=  6.0301 len=  2231.2mm stranded=0 cut=0 clear=36
+church: 8 panels, 7 creases, 11 seams, 11 cycles, 17869 nodes / 69938 edges
+   A length_only       tensile=  2 sumEps=  0.4477 len=   499.1mm stranded=0 cut=0 clear=9
+   A mountain_penalty  tensile=  2 sumEps=  0.4477 len=   499.1mm stranded=0 cut=0 clear=9
+   A traceform         tensile=  2 sumEps=  0.4477 len=   496.3mm stranded=0 cut=0 clear=9
+   B length_only       tensile= 10 sumEps=  1.7907 len=  1019.4mm stranded=0 cut=0 clear=15
+   B mountain_penalty  tensile= 10 sumEps=  1.7907 len=  1019.4mm stranded=0 cut=0 clear=15
+   B traceform         tensile= 10 sumEps=  1.6477 len=   988.4mm stranded=0 cut=0 clear=15
+   C length_only       tensile= 55 sumEps= 10.3401 len=  2996.0mm stranded=0 cut=0 clear=45
+   C mountain_penalty  tensile= 47 sumEps=  9.1587 len=  3413.0mm stranded=0 cut=0 clear=50
+   C traceform         tensile= 37 sumEps=  6.4727 len=  2346.4mm stranded=0 cut=0 clear=38
+bat_body: 74 panels, 73 creases, 89 seams, 89 cycles, 17780 nodes / 65651 edges
+   A length_only       tensile= 16 sumEps=  1.2669 len=   525.6mm stranded=0 cut=0 clear=8
+   A mountain_penalty  tensile= 15 sumEps=  1.0853 len=   511.4mm stranded=0 cut=0 clear=9
+   A traceform         tensile= 11 sumEps=  0.7554 len=   437.3mm stranded=0 cut=0 clear=7
+   B length_only       tensile= 45 sumEps=  3.1499 len=  1019.7mm stranded=0 cut=0 clear=17
+   B mountain_penalty  tensile= 32 sumEps=  2.7286 len=  1034.9mm stranded=0 cut=0 clear=16
+   B traceform         tensile= 31 sumEps=  2.7217 len=  1088.4mm stranded=0 cut=0 clear=18
+   C length_only       tensile=132 sumEps=  9.0892 len=  2611.2mm stranded=0 cut=0 clear=29
+   C mountain_penalty  tensile= 80 sumEps=  6.1764 len=  2169.0mm stranded=0 cut=0 clear=39
+   C traceform         tensile= 86 sumEps=  6.1365 len=  2216.6mm stranded=0 cut=0 clear=39
+guitar_lower_bout: 54 panels, 53 creases, 64 seams, 64 cycles, 17769 nodes / 67257 edges
+   A length_only       tensile=  2 sumEps=  0.1214 len=   351.2mm stranded=0 cut=0 clear=7
+   A mountain_penalty  tensile=  2 sumEps=  0.1214 len=   351.2mm stranded=0 cut=0 clear=7
+   A traceform         tensile=  2 sumEps=  0.1214 len=   351.2mm stranded=0 cut=0 clear=7
+   B length_only       tensile= 20 sumEps=  1.7635 len=   996.2mm stranded=0 cut=0 clear=13
+   B mountain_penalty  tensile= 19 sumEps=  1.7300 len=   995.7mm stranded=0 cut=0 clear=13
+   B traceform         tensile= 19 sumEps=  1.7300 len=   995.7mm stranded=0 cut=0 clear=13
+   C length_only       tensile= 92 sumEps=  7.1946 len=  2992.8mm stranded=0 cut=0 clear=44
+   C mountain_penalty  tensile= 75 sumEps=  6.0359 len=  3002.9mm stranded=0 cut=0 clear=60
+   C traceform         tensile= 76 sumEps=  5.9723 len=  2995.3mm stranded=0 cut=0 clear=61
+guitar_upper_bout: 42 panels, 41 creases, 49 seams, 49 cycles, 17785 nodes / 67620 edges
+   A length_only       tensile=  2 sumEps=  0.1210 len=   422.9mm stranded=0 cut=0 clear=8
+   A mountain_penalty  tensile=  2 sumEps=  0.1210 len=   422.9mm stranded=0 cut=0 clear=8
+   A traceform         tensile=  2 sumEps=  0.1210 len=   430.1mm stranded=0 cut=0 clear=8
+   B length_only       tensile= 23 sumEps=  1.8923 len=   942.6mm stranded=0 cut=0 clear=13
+   B mountain_penalty  tensile= 19 sumEps=  1.7302 len=   957.6mm stranded=0 cut=0 clear=13
+   B traceform         tensile= 19 sumEps=  1.7302 len=   968.7mm stranded=0 cut=0 clear=13
+   C length_only       tensile= 86 sumEps=  6.7517 len=  2354.9mm stranded=0 cut=0 clear=40
+   C mountain_penalty  tensile= 79 sumEps=  6.6501 len=  2630.2mm stranded=0 cut=0 clear=41
+   C traceform         tensile= 73 sumEps=  5.8942 len=  2215.6mm stranded=0 cut=0 clear=30
+
+45 instances in 97.5s -> results/2026-09-16/widest_first/benchmark_results.csv
+=== narrowest_first 08:46:38 ===
+house: 7 panels, 6 creases, 9 seams, 9 cycles, 17832 nodes / 69934 edges
+   A length_only       tensile=  2 sumEps=  0.4477 len=   438.7mm stranded=0 cut=0 clear=5
+   A mountain_penalty  tensile=  2 sumEps=  0.4477 len=   438.7mm stranded=0 cut=0 clear=5
+   A traceform         tensile=  2 sumEps=  0.4477 len=   433.3mm stranded=0 cut=0 clear=5
+   B length_only       tensile= 15 sumEps=  3.3576 len=  1376.5mm stranded=0 cut=0 clear=10
+   B mountain_penalty  tensile= 15 sumEps=  3.3576 len=  1376.5mm stranded=0 cut=0 clear=10
+   B traceform         tensile= 14 sumEps=  3.1337 len=  1361.4mm stranded=0 cut=0 clear=12
+   C length_only       tensile= 48 sumEps=  9.7166 len=  2706.0mm stranded=0 cut=0 clear=33
+   C mountain_penalty  tensile= 48 sumEps=  9.6115 len=  2861.7mm stranded=0 cut=0 clear=43
+   C traceform         tensile= 38 sumEps=  7.4002 len=  2748.2mm stranded=0 cut=0 clear=45
+church: 8 panels, 7 creases, 11 seams, 11 cycles, 17869 nodes / 69938 edges
+   A length_only       tensile=  2 sumEps=  0.4477 len=   532.3mm stranded=0 cut=0 clear=8
+   A mountain_penalty  tensile=  2 sumEps=  0.4477 len=   532.3mm stranded=0 cut=0 clear=8
+   A traceform         tensile=  2 sumEps=  0.4477 len=   505.9mm stranded=0 cut=0 clear=8
+   B length_only       tensile= 10 sumEps=  1.7907 len=   996.3mm stranded=0 cut=0 clear=10
+   B mountain_penalty  tensile= 10 sumEps=  1.7907 len=   996.3mm stranded=0 cut=0 clear=10
+   B traceform         tensile= 10 sumEps=  1.7907 len=   992.6mm stranded=0 cut=0 clear=10
+   C length_only       tensile= 56 sumEps= 11.4779 len=  3081.7mm stranded=0 cut=0 clear=38
+   C mountain_penalty  tensile= 43 sumEps=  7.9774 len=  2499.8mm stranded=0 cut=0 clear=38
+   C traceform         tensile= 37 sumEps=  6.4727 len=  2526.1mm stranded=0 cut=0 clear=38
+bat_body: 74 panels, 73 creases, 89 seams, 89 cycles, 17780 nodes / 65651 edges
+   A length_only       tensile= 18 sumEps=  1.3676 len=   530.2mm stranded=0 cut=0 clear=5
+   A mountain_penalty  tensile= 13 sumEps=  0.7872 len=   517.1mm stranded=0 cut=0 clear=5
+   A traceform         tensile= 11 sumEps=  0.6755 len=   511.0mm stranded=0 cut=0 clear=5
+   B length_only       tensile= 47 sumEps=  3.4054 len=  1052.4mm stranded=0 cut=0 clear=14
+   B mountain_penalty  tensile= 31 sumEps=  2.7217 len=  1065.2mm stranded=0 cut=0 clear=17
+   B traceform         tensile= 31 sumEps=  2.7217 len=  1065.2mm stranded=0 cut=0 clear=17
+   C length_only       tensile=142 sumEps= 10.6028 len=  2939.4mm stranded=0 cut=0 clear=34
+   C mountain_penalty  tensile= 87 sumEps=  7.0245 len=  2277.1mm stranded=0 cut=0 clear=39
+   C traceform         tensile= 88 sumEps=  6.4588 len=  2335.2mm stranded=0 cut=0 clear=36
+guitar_lower_bout: 54 panels, 53 creases, 64 seams, 64 cycles, 17769 nodes / 67257 edges
+   A length_only       tensile=  2 sumEps=  0.1214 len=   336.1mm stranded=0 cut=0 clear=5
+   A mountain_penalty  tensile=  2 sumEps=  0.1214 len=   336.1mm stranded=0 cut=0 clear=5
+   A traceform         tensile=  2 sumEps=  0.1214 len=   336.1mm stranded=0 cut=0 clear=5
+   B length_only       tensile= 33 sumEps=  3.0177 len=  1284.8mm stranded=0 cut=0 clear=14
+   B mountain_penalty  tensile= 19 sumEps=  1.7354 len=  1024.0mm stranded=0 cut=0 clear=14
+   B traceform         tensile= 19 sumEps=  1.7354 len=  1024.4mm stranded=0 cut=0 clear=14
+   C length_only       tensile=109 sumEps=  8.4591 len=  3260.5mm stranded=0 cut=0 clear=46
+   C mountain_penalty  tensile= 86 sumEps=  6.7835 len=  2999.0mm stranded=0 cut=0 clear=45
+   C traceform         tensile= 86 sumEps=  6.2430 len=  3149.1mm stranded=0 cut=0 clear=45
+guitar_upper_bout: 42 panels, 41 creases, 49 seams, 49 cycles, 17785 nodes / 67620 edges
+   A length_only       tensile=  2 sumEps=  0.1210 len=   458.7mm stranded=0 cut=0 clear=10
+   A mountain_penalty  tensile=  2 sumEps=  0.1210 len=   458.7mm stranded=0 cut=0 clear=10
+   A traceform         tensile=  2 sumEps=  0.1210 len=   458.7mm stranded=0 cut=0 clear=10
+   B length_only       tensile= 34 sumEps=  3.0261 len=  1234.8mm stranded=0 cut=0 clear=10
+   B mountain_penalty  tensile= 28 sumEps=  2.4191 len=  1324.3mm stranded=0 cut=0 clear=13
+   B traceform         tensile= 20 sumEps=  1.7936 len=  1017.6mm stranded=0 cut=0 clear=14
+   C length_only       tensile= 90 sumEps=  6.6576 len=  2498.1mm stranded=0 cut=0 clear=34
+   C mountain_penalty  tensile= 69 sumEps=  5.8740 len=  2290.8mm stranded=0 cut=0 clear=31
+   C traceform         tensile= 73 sumEps=  5.6888 len=  2251.9mm stranded=0 cut=0 clear=31
+
+45 instances in 102.9s -> results/2026-09-16/narrowest_first/benchmark_results.csv
+=== declaration 08:48:21 ===
+house: 7 panels, 6 creases, 9 seams, 9 cycles, 17832 nodes / 69934 edges
+   A length_only       tensile=  2 sumEps=  0.4477 len=   398.6mm stranded=0 cut=0 clear=8
+   A mountain_penalty  tensile=  2 sumEps=  0.4477 len=   398.6mm stranded=0 cut=0 clear=8
+   A traceform         tensile=  2 sumEps=  0.4477 len=   398.6mm stranded=0 cut=0 clear=8
+   B length_only       tensile= 14 sumEps=  3.1337 len=  1352.3mm stranded=0 cut=0 clear=11
+   B mountain_penalty  tensile= 14 sumEps=  3.1337 len=  1352.3mm stranded=0 cut=0 clear=11
+   B traceform         tensile= 13 sumEps=  2.9099 len=  1319.3mm stranded=0 cut=0 clear=12
+   C length_only       tensile= 40 sumEps=  7.9259 len=  2298.9mm stranded=0 cut=0 clear=38
+   C mountain_penalty  tensile= 35 sumEps=  6.9390 len=  2355.4mm stranded=0 cut=0 clear=38
+   C traceform         tensile= 30 sumEps=  5.7147 len=  2506.0mm stranded=0 cut=0 clear=44
+church: 8 panels, 7 creases, 11 seams, 11 cycles, 17869 nodes / 69938 edges
+   A length_only       tensile=  2 sumEps=  0.4477 len=   504.3mm stranded=0 cut=0 clear=9
+   A mountain_penalty  tensile=  2 sumEps=  0.4477 len=   504.3mm stranded=0 cut=0 clear=9
+   A traceform         tensile=  2 sumEps=  0.4477 len=   481.3mm stranded=0 cut=0 clear=9
+   B length_only       tensile= 11 sumEps=  1.9337 len=  1030.4mm stranded=0 cut=0 clear=13
+   B mountain_penalty  tensile= 10 sumEps=  1.9337 len=  1072.9mm stranded=0 cut=0 clear=13
+   B traceform         tensile= 10 sumEps=  1.7907 len=  1046.4mm stranded=0 cut=0 clear=13
+   C length_only       tensile= 71 sumEps= 14.0272 len=  3660.2mm stranded=0 cut=0 clear=46
+   C mountain_penalty  tensile= 55 sumEps= 10.6883 len=  2962.0mm stranded=0 cut=0 clear=42
+   C traceform         tensile= 38 sumEps=  7.2250 len=  2432.2mm stranded=0 cut=0 clear=41
+bat_body: 74 panels, 73 creases, 89 seams, 89 cycles, 17780 nodes / 65651 edges
+   A length_only       tensile= 23 sumEps=  1.5979 len=   554.6mm stranded=0 cut=0 clear=8
+   A mountain_penalty  tensile= 14 sumEps=  1.0818 len=   490.5mm stranded=0 cut=0 clear=9
+   A traceform         tensile= 11 sumEps=  0.6755 len=   494.2mm stranded=0 cut=0 clear=6
+   B length_only       tensile= 48 sumEps=  3.2279 len=  1036.6mm stranded=0 cut=0 clear=14
+   B mountain_penalty  tensile= 34 sumEps=  2.9130 len=  1082.7mm stranded=0 cut=0 clear=14
+   B traceform         tensile= 35 sumEps=  2.6606 len=  1084.7mm stranded=0 cut=0 clear=14
+   C length_only       tensile=131 sumEps=  9.4344 len=  2654.0mm stranded=0 cut=0 clear=30
+   C mountain_penalty  tensile= 92 sumEps=  7.9005 len=  2246.9mm stranded=0 cut=0 clear=37
+   C traceform         tensile= 76 sumEps=  5.3854 len=  1996.8mm stranded=0 cut=0 clear=41
+guitar_lower_bout: 54 panels, 53 creases, 64 seams, 64 cycles, 17769 nodes / 67257 edges
+   A length_only       tensile=  2 sumEps=  0.1214 len=   374.3mm stranded=0 cut=0 clear=9
+   A mountain_penalty  tensile=  2 sumEps=  0.1214 len=   374.3mm stranded=0 cut=0 clear=9
+   A traceform         tensile=  2 sumEps=  0.1214 len=   374.3mm stranded=0 cut=0 clear=9
+   B length_only       tensile= 19 sumEps=  1.7300 len=  1021.6mm stranded=0 cut=0 clear=13
+   B mountain_penalty  tensile= 19 sumEps=  1.7300 len=  1021.6mm stranded=0 cut=0 clear=13
+   B traceform         tensile= 19 sumEps=  1.7300 len=  1021.2mm stranded=0 cut=0 clear=13
+   C length_only       tensile= 94 sumEps=  7.1178 len=  2967.0mm stranded=0 cut=0 clear=47
+   C mountain_penalty  tensile= 79 sumEps=  6.3484 len=  3025.5mm stranded=0 cut=0 clear=43
+   C traceform         tensile= 83 sumEps=  6.0519 len=  3028.6mm stranded=0 cut=0 clear=43
+guitar_upper_bout: 42 panels, 41 creases, 49 seams, 49 cycles, 17785 nodes / 67620 edges
+   A length_only       tensile=  2 sumEps=  0.1210 len=   440.4mm stranded=0 cut=0 clear=9
+   A mountain_penalty  tensile=  2 sumEps=  0.1210 len=   440.4mm stranded=0 cut=0 clear=9
+   A traceform         tensile=  2 sumEps=  0.1210 len=   440.4mm stranded=0 cut=0 clear=9
+   B length_only       tensile= 23 sumEps=  1.9151 len=   974.0mm stranded=0 cut=0 clear=12
+   B mountain_penalty  tensile= 20 sumEps=  1.7936 len=  1008.2mm stranded=0 cut=0 clear=11
+   B traceform         tensile= 20 sumEps=  1.7936 len=  1006.2mm stranded=0 cut=0 clear=11
+   C length_only       tensile= 79 sumEps=  6.3283 len=  2143.9mm stranded=0 cut=0 clear=32
+   C mountain_penalty  tensile= 70 sumEps=  5.8408 len=  2163.4mm stranded=0 cut=0 clear=34
+   C traceform         tensile= 73 sumEps=  5.6109 len=  2189.3mm stranded=0 cut=0 clear=34
+
+45 instances in 100.7s -> results/2026-09-16/declaration/benchmark_results.csv

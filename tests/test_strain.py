@@ -10,7 +10,15 @@ def spec(cfg):
     return SheetSpec.from_config(cfg)
 
 
-def test_fibre_offset_is_half_the_substrate_plus_the_foil(spec):
+def test_fibre_offset_is_half_the_substrate_plus_adhesive_and_foil(spec):
+    assert spec.fibre_offset_mm == pytest.approx(
+        spec.substrate_mm / 2 + spec.adhesive_mm + spec.foil_mm)
+
+
+def test_a_config_without_adhesive_puts_the_foil_on_the_hinge(cfg):
+    bare = {**cfg, "sheet_spec": {k: v for k, v in cfg["sheet_spec"].items() if k != "adhesive_mm"}}
+    spec = SheetSpec.from_config(bare)
+    assert spec.adhesive_mm == 0.0
     assert spec.fibre_offset_mm == pytest.approx(spec.substrate_mm / 2 + spec.foil_mm)
 
 
@@ -39,8 +47,8 @@ def test_mountain_is_tension_and_valley_is_compression(spec):
 
 
 def test_strain_matches_a_hand_computed_value(spec):
-    # eps = (h/2 + t) * theta / w = 0.235 * (pi/6) / 2.0
-    expected = 0.235 * (math.pi / 6) / 2.0
+    # eps = (h/2 + a + t) * theta / w = (0.2 + 0.035 + 0.050) * (pi/6) / 2.0
+    expected = 0.285 * (math.pi / 6) / 2.0
     assert fold_strain(spec, math.radians(30)) == pytest.approx(expected, rel=1e-9)
 
 

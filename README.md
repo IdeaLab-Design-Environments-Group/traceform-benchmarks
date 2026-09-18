@@ -1,14 +1,17 @@
 # traceformroutebench
 
+This is the benchmark for **Traceform**; the project itself lives at
+<https://github.com/IdeaLab-Design-Environments-Group/kiri>.
+
 A reproducible benchmark for routing electrical circuits on a folded substrate:
 
 > Carrying signed fold geometry from 3D unfolding into circuit routing reduces
 > mechanically risky crease crossings while respecting fabrication boundaries.
 
-Three meshes are unfolded to flat patterns whose crease edges carry a sign
+Five meshes are unfolded to flat patterns whose crease edges carry a sign
 (mountain/valley) and dihedral angle. Three component placements per model — a
 control (A), a spanning layout (B) and an adversarial one (C) — are routed by
-two routers, and every claimed property is checked by a validator that works
+three routers, and every claimed property is checked by a validator that works
 from the trace geometry alone, never from the router's own reporting.
 
 ## Running it
@@ -44,7 +47,7 @@ not been released yet.
   it is not in the repository. The benchmark treats it as a black box and
   measures outcomes.
 
-What the two routers *do* share is published and auditable: the same flat
+What the routers *do* share is published and auditable: the same flat
 patterns, the same routing graph, the same component keep-outs, the same
 fabrication charges for a taped seam and for a change of face, and the same
 validator. The comparison isolates what reading the fold geometry is worth.
@@ -75,13 +78,23 @@ the mean of three orderings rather than a single run:
 |---|---|---|
 | `length_only` | 571.7 | 21,661 mm |
 | `mountain_penalty` | 445.0 | 20,820 mm |
-| `traceform` | **417.7** | **20,011 mm** |
+| `traceform` | **421.7** | **19,994 mm** |
 
-`traceform` carries **6.1% fewer tensile crossings than the published mountain
-rule while using 3.9% less copper**, and 26.9% fewer than the fold-blind
-control at 7.6% less copper. It leads on both metrics under each of the three
-orderings independently. Per instance, once ordering spread is treated as
-noise, it wins 2, ties 13 and **loses 0** of 15.
+`traceform` carries **5.2% fewer tensile crossings than the published mountain
+rule while using 4.0% less copper**, and 26.2% fewer than the fold-blind
+control at 7.7% less copper. It leads on both metrics under each of the three
+orderings independently. Per instance, on the mean over orderings, it wins 6,
+ties 7 and loses 2 of 15 against the mountain rule (guitar_lower_bout C by
+1.7 crossings, guitar_upper_bout C by 0.3), and wins 11, ties 4, loses 0
+against the control. Ordering alone moves total crossings by 5.0% of the
+median for `traceform`, 6.4% for `mountain_penalty` and 11.8% for
+`length_only`.
+
+The sheet is the one the artifacts are built on: 0.050 mm foil on 0.035 mm
+adhesive over a 0.4 mm hinge member 2.0 mm wide, with the routing threshold
+`fatigue_strain` at 0.03, the foil's elongation at break (`config.yaml`). The
+three-ordering run these figures come from is `results/2026-09-16/`, with
+`aggregate.py` there deriving every number above from the per-run CSVs.
 
 The gain is unevenly distributed, and the per-model split is the honest picture:
 
@@ -89,11 +102,11 @@ The gain is unevenly distributed, and the per-model split is the honest picture:
 |---|---|---|---|---|
 | house | 54.0 / 4,246 | 48.3 / 4,227 | −10.5% | −0.4% |
 | church | 60.3 / 4,500 | 49.3 / 3,939 | **−18.2%** | **−12.5%** |
-| bat_body | 132.7 / 3,798 | 123.7 / 3,756 | −6.8% | −1.1% |
-| guitar_lower_bout | 101.0 / 4,377 | 102.0 / 4,424 | +1.0% | +1.1% |
-| guitar_upper_bout | 97.0 / 3,899 | 94.3 / 3,664 | −2.7% | −6.0% |
+| bat_body | 132.7 / 3,798 | 126.7 / 3,743 | −4.5% | −1.5% |
+| guitar_lower_bout | 101.0 / 4,377 | 102.7 / 4,425 | +1.7% | +1.1% |
+| guitar_upper_bout | 97.0 / 3,899 | 94.7 / 3,659 | −2.4% | −6.1% |
 
-Four of five models improve on crossings; `guitar_lower_bout` is 1% worse on
+Four of five models improve on crossings; `guitar_lower_bout` is 1–2% worse on
 both and is the one model where the graded price does not pay.
 
 No trace crosses a cut edge and no terminal strands, in any router. Two runs
@@ -116,7 +129,8 @@ open to inspection in full even though its implementation is not.
 
 ## Meshes
 
-`house`, `church` and `bat_body`, copied unmodified from the source project;
+`house`, `church`, `bat_body`, `guitar_lower_bout` and `guitar_upper_bout`, copied
+unmodified from the source project;
 origins and SHA-256 checksums in `data/meshes/PROVENANCE.md`. Component
 footprints are parsed from vendored KiCad FabLib files — no pad coordinate in
 this repository was typed by hand.

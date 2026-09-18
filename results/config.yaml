@@ -49,13 +49,15 @@ unfold:
 # ------------------------------------------------------------------ physics
 # Euler-Bernoulli outer-fibre strain in the copper, after
 # kiri/src/model/fold-strain.ts (DEFAULT_SHEET).  Mountain positive = tension.
-#   R = w / theta ;  eps = (h/2 + t) / R = (h/2 + t) * theta / w
+#   R = w / theta ;  eps = (h/2 + a + t) / R = (h/2 + a + t) * theta / w
 sheet_spec:
   substrate_mm: 0.4       # h  — the hinge bridge, not the rigid tile
-  foil_mm: 0.035          # t  — copper foil
+  foil_mm: 0.050          # t  — copper foil, from the tape datasheet
+  adhesive_mm: 0.035      # a  — conductive adhesive standing the foil off the hinge
   substrate_gpa: 3.5
   foil_gpa: 117.0
-  fatigue_strain: 0.01    # reported only; NOT used to clip the routing cost
+  fatigue_strain: 0.03    # eps_f: the foil's elongation at break (1 oz ED copper,
+                          # IPC-TM-650 2.4.18), a routing threshold, not a fatigue limit
   hinge_width_mm: 2.0     # w  — scored crease band width
 
 # ------------------------------------------------------------------ routing
